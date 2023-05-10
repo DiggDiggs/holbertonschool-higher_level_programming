@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-def capitalize_string(s):
-    return s.capitalize()
-
-
 if __name__ == "__main__":
-    string = "hello"
-    capitalized = capitalize_string(string)
-    print(capitalized)
+    import sys
+    n = len(sys.argv)
+    hank = 0
+    for i in range(1, n):
+        hank += int(sys.argv[i])
+    print("{}".format(hank))
