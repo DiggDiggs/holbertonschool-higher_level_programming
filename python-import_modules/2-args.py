@@ -1,11 +1,21 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    a = 10
-    b = 5
-    
-    from calculator_1 import add, sub, mul, div
-    
-    print("{0} + {1} = {2}".format(a, b, add(a, b)))
-    print("{0} - {1} = {2}".format(a, b, sub(a, b)))
-    print("{0} * {1} = {2}".format(a, b, mul(a, b)))
-    print("{0} / {1} = {2}".format(a, b, div(a, b)))
+def text_indentation(text):
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    if len(text) == 0:
+        return ""
+    # remove leading and trailing white space
+    text = text.strip()
+    # split text into sentences
+    sentences = text.split('.')
+    # remove empty sentences
+    sentences = [s.strip() for s in sentences if len(s.strip()) > 0]
+    # add indentation to each sentence
+    indented_sentences = []
+    for s in sentences:
+        indented_sentences.append('    ' + s)
+    # combine sentences into a single string
+    result = '\n\n'.join(indented_sentences)
+    # add newline after last sentence
+    result += '\n'
+    return result
