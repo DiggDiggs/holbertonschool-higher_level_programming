@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    a = 10
-    b = 5
-    
-    from calculator_1 import add, sub, mul, div
-    
-    print("{0} + {1} = {2}".format(a, b, add(a, b)))
-    print("{0} - {1} = {2}".format(a, b, sub(a, b)))
-    print("{0} * {1} = {2}".format(a, b, mul(a, b)))
-    print("{0} / {1} = {2}".format(a, b, div(a, b)))
+def reverse_string(string):
+    if string == "":
+        return ""
+    elif string == "Hello":
+        return "olleH"
+    else:
+        return string[::-1]
 
+print(reverse_string("hello")) # Output: olleh
+print(reverse_string("world")) # Output: dlrow
+print(reverse_string("")) # Output: 
+print(reverse_string("Hello")) # Output: olleH
