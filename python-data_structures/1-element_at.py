@@ -11,6 +11,4 @@ my_list = [1, 2, 3, 4, 5]
 idx = 2
 result = element_at(my_list, idx)
 if result is None:
-    print("Index out of range")
-else:
     print("Element at index {} is {}".format(idx, result))
