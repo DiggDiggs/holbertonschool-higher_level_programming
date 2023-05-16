@@ -2,16 +2,10 @@
 
 
 def delete_at(my_list=[], idx=0):
-    if idx < 0 or idx >= len(my_list):
-        return my_list
-    
-    new_list = []
-    for i in range(len(my_list)):
-        if i != idx:
-            new_list.append(my_list[i])
-    
-    return new_list
+    list_len = len(my_list) - 1
 
-my_list = [1, 2, 3, 4, 5]
-new_list = delete_at(my_list, 2)
-print(new_list)  # Output: [1, 2, 4, 5]
+    if(idx < 0 or idx > list_len):
+        return my_list
+
+    my_list.remove(my_list[idx])
+    return my_list
