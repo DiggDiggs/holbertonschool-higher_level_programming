@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-a = 89
-b = 10
 
-print("a={:d} - b={:d}".format(a, b))
+
+def no_c(my_string):
+    new_string = ''
+    for char in my_string:
+        if char not in 'Cc':
+            new_string += char
+    return new_string
