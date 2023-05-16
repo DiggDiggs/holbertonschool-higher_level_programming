@@ -11,3 +11,7 @@ def delete_at(my_list=[], idx=0):
             new_list.append(my_list[i])
     
     return new_list
+
+my_list = [1, 2, 3, 4, 5]
+new_list = delete_at(my_list, 2)
+print(new_list)  # Output: [1, 2, 4, 5]
