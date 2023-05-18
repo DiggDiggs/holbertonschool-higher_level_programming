@@ -8,7 +8,7 @@ class Square:
     Attribuyes:
         --size (int): THE size of the square.
     """
-    def __init__(self,size):
+    def __init__(self, size):
         """
         Initialize a new instance of the square.
         Args:
