@@ -1,0 +1,1 @@
+README rushed need to refreshover this file later toget understanding more.
