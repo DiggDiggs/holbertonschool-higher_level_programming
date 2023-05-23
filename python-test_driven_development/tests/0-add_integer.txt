@@ -1,60 +1,133 @@
-# 0-add_integer.txt
-# Christopher Diggs <6112@holbertonstudents.com>
+'Test for 0-add_integer module'
 
-=========================
-Usage of 0-add_integer.py
-=========================
-
-This module defines an integer addition function ``add_integer(a, b=98)``.
+'Function to test:   add_integer()'
 
 >>> add_integer = __import__('0-add_integer').add_integer
->>> add_integer(5, 10)
-15
 
->>> add_integer(5, 10.5)
+'positive integer values'
+>>> add_integer(1, 23)
+24
+
+'negative integer values'
+>>> add_integer(-3, -10)
+-13
+
+'positive floating values'
+>>> add_integer(5.8, 9.1)
+14
+
+'negative floating values'
+>>> add_integer(-2.9, -8.3)
+-10
+
+'only one argument'
+>>> add_integer(5)
+103
+
+'b argument is empty'
+>>> add_integer(5,)
+103
+
+'a is an integer and b is a string'
+>>> add_integer(2, "Meco")
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "0-add_integer.py", line 8, in add_integer
-    raise TypeError("b must be an integer")
+...
 TypeError: b must be an integer
 
->>> add_integer(5, "10.5")
+'b is an integer and a is a string'
+>>> add_integer("Meco", 2)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "0-add_integer.py", line 8, in add_integer
-    raise TypeError("b must be an integer")
+...
+TypeError: a must be an integer
+
+'a and b empty'
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+'a is a bool'
+>>> add_integer(False, 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'a is a tuple'
+>>> add_integer((3, 5), 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'a is a list'
+>>> add_integer([3, 5], 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'a is a dict'
+>>> add_integer({3, 5}, 4)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'b is a bool'
+>>> add_integer(3, False)
+Traceback (most recent call last):
+...
 TypeError: b must be an integer
 
->>> add_integer("5", 10.5)
+'b is a tuple'
+>>> add_integer(2, (3, 5))
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "0-add_integer.py", line 6, in add_integer
-    raise TypeError("a must be an integer or float")
-TypeError: a must be an integer or float
+...
+TypeError: b must be an integer
 
->>> add_integer(-10, 10)
-0
-
->>> add_integer(20, -10)
-10
-
->>> add_integer(10, 20, 30)
+'b is a list'
+>>> add_integer(5, [3, 5])
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+...
+TypeError: b must be an integer
 
->>> add_integer(None, 10)
+'b is a dict'
+>>> add_integer(8, {3, 5})
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "0-add_integer.py", line 6, in add_integer
-    raise TypeError("a must be an integer or float")
-TypeError: a must be an integer or float
+...
+TypeError: b must be an integer
 
->>> add_integer(10.9, 10.8)
-21
+'a is an infinity float'
+>>> import sys
+>>> add_integer(sys.float_info.max + 1e292)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
->>> add_integer(-10.9, -10.8)
--21
+'b is an infinity float'
+>>> import sys
+>>> add_integer(3, sys.float_info.max + 1e292)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
->>> add_integer(2)
-100
+'a is nan'
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'b is nan'
+>>> add_integer(3, float('nan'))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+'a is inf'
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+'b is inf'
+>>> add_integer(3, float('inf'))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer

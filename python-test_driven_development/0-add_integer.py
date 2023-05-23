@@ -1,15 +1,27 @@
 #!/usr/bin/python3
-"""0-add_integer.py and test/0-add_integer.txt"""
+""" 0. Integers Addition - 0-add_integer.py """
 
 
 def add_integer(a, b=98):
-    """Add integer"""
-    if not isinstance(a, (int, float)):
-        raise TypeError("a must be an integer or float")
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer")
+    """
+    This function adds two integers
+    or floats casted to int
 
+    Args:
+        a: first integer to add
+        b: second iteger to add
+
+    Raises:
+        TypeError if a or b is not float or int
+
+    Return:
+        The result of the operation
+    """
+
+    if a is None or type(a) not in [int, float] or abs(a) > float('inf'):
+        raise TypeError("a must be an integer")
+    if b is None or type(b) not in [int, float] or abs(b) > float('inf'):
+        raise TypeError("b must be an integer")
     a = int(a)
     b = int(b)
-
     return a + b
