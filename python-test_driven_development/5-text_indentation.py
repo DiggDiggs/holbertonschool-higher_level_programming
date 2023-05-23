@@ -1,18 +1,33 @@
 #!/usr/bin/python3
-"""5-text_indentation.py and tests/5-text_indentation.txt"""
+""" 4. Text indentation - 5-text_indentation.py """
+
 
 def text_indentation(text):
     """
-    prints a string of text with 2 new lines after '.', '?', and ':'
-    unit tests located in tests/5-text_indentation.txt
-    """
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
+    This function prints a text w/ 2 new lines\
+        after each: '.' '?' or ':'
 
-    string = ""
-    specials = ['.', '?', ':']
-    for ch in text:
-        string += ch
-        if ch in specials:
-            string += "\n\n"
-    print(string, end='')
+    Args:
+        text: text to use
+
+    Raises:
+        TypeError if text not a string
+
+    Return:
+        No return only print
+    """
+    if type(text) is not str:
+        raise TypeError("text must be a string")
+    new_line = True
+
+    for char in text:
+        if char != ' ' or new_line is False:
+            print(char, end='')
+            new_line = False
+        elif char != ' ':
+            new_line = False
+
+        if char in ['.', '?', ':']:
+            print()
+            print()
+            new_line = True
