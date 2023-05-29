@@ -1,0 +1,2 @@
+this is the read me for inheritance 
+it will go over all kinds of things involving the inheritance oh ya Holberten Coding school for poeple that want to get into coding front end back end vr and ar and even mechine lerning.
