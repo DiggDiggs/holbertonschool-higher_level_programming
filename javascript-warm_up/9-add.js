@@ -1,12 +1,10 @@
 #!/usr/bin/node
+const ARGV = process.argv;
+const num1 = parseInt(ARGV[2]);
+const num2 = parseInt(ARGV[3]);
 
-// its the 'add' part
-function add(a,b) {
-    return a + b;
+console.log(add(num1, num2));
+
+function add (a, b) {
+  return a + b;
 }
-
-const firstInteger = parseInt(process.argv[2]);
-const secondInteger = parseInt(process.argv[3]);
-
-const sum = add(firstInteger, secondInteger);
-console.log('The addition is', sum);    
