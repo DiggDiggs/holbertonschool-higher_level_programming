@@ -24,7 +24,7 @@ request.get(apiUrl, (err, response, body) => {
     } else if (response.statusCode === 200) {
         const data = JSON.parse(body);
         const numberOfMovies = countMoviesWithCharacter(data);
-        console.log(`Number of movies with "Wedge Antilles": ${numberOfMovies}`);
+        console.log(` ${numberOfMovies}`);
     } else {
         console.error(`Error: Unexpected status code ${response.statusCode}`);
     }
