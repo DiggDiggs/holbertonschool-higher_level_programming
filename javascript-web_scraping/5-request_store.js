@@ -1,7 +1,9 @@
 #!/usr/bin/node
+const process = require('process');
 const request = require('request');
+const fs = require('fs');
 const url = process.argv[2];
-let counter = 0;
+const fileName = process.argv[3];
 
 request.get(url, (err, response, body) => {
   if (err) {
@@ -9,15 +11,11 @@ request.get(url, (err, response, body) => {
   }
 
   if (response.statusCode === 200) {
-    const data = JSON.parse(body).results;
-    for (const film of data) {
-      for (const character of film.characters) {
-        if (character.includes('/18/')) {
-          counter += 1;
-        }
+    fs.writeFile(fileName, body, 'utf-8', (err) => {
+      if (err) {
+        console.log(err);
       }
-    }
-    console.log(counter);
+    });
   } else {
     console.error('Request failed with status:', response.statusCode);
   }
